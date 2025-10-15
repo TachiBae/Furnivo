@@ -71,7 +71,8 @@ a {
   margin: 0;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%); /* centered both horizontally and vertically */
 }
 
 .nav-link {
