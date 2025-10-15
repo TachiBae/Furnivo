@@ -12,27 +12,40 @@
     <!-- Global & Page-specific Styles -->
     <link rel="stylesheet" href="../CSS/globals.css" />
     <link rel="stylesheet" href="../CSS/about-styles.css" />
-
   </head>
   <body>
     <div class="about-page">
       <!-- Header -->
-      <header class="header">
+      <header class="header navbar">
         <div class="header-content">
-          <a href="../HTML/main.html" class="logo-text">Furnivo</a>
-          <nav class="nav" aria-label="Main navigation">
-            <a href="../HTML/shop-page.html" class="nav-link">Shop</a>
-            <a href="collections.html" class="nav-link">Collections</a>
-            <a href="../HTML/about-page.html" class="nav-link nav-link-active" aria-current="page">About</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-          </nav>
-          <div class="header-actions">
-            <button class="icon-button" aria-label="Shopping cart">
-              <svg width="24" height="24" viewBox="0 0 24 24"><path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L4.707 15.293C4.077 15.923 4.523 17 5.414 17H17M17 17C15.895 17 15 17.895 15 19C15 20.105 15.895 21 17 21C18.105 21 19 20.105 19 19C19 17.895 18.105 17 17 17ZM9 19C9 20.105 8.105 21 7 21C5.895 21 5 20.105 5 19C5 17.895 5.895 17 7 17C8.105 17 9 17.895 9 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-          </div>
+          <div class="logo"><a href="../HTML/main.html">Furnivo</a></div>
+
+          <!-- Mobile menu toggle -->
+          <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!--Nav Bar-->
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="../HTML/furniture-page.html" class="nav-link">Furniture</a></li>
+            <li><a href="../HTML/shop-page.html" class="nav-link">Shop</a></li>
+            <li><a href="../HTML/about-page.html" class="nav-link">About Us</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+
+          <!-- Cart icon -->
+          <button class="cart-icon" aria-label="Shopping cart">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L4.707 15.293C4.077 15.923 4.523 17 5.414 17H17M17 17C15.895 17 15 17.895 15 19C15 20.105 15.895 21 17 21C18.105 21 19 20.105 19 19C19 17.895 18.105 17 17 17ZM9 19C9 20.105 8.105 21 7 21C5.895 21 5 20.105 5 19C5 17.895 5.895 17 7 17C8.105 17 9 17.895 9 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
       </header>
+
+      <!-- Overlay for mobile menu -->
+      <div class="menu-overlay"></div>
 
       <!-- Main Content -->
       <main>
@@ -59,8 +72,217 @@
           </div>
         </section>
 
-        <!-- Additional Sections (Values, Journey, CTA, Footer) remain same -->
+        <!-- Values Section -->
+        <section class="values-section">
+          <div class="values-container">
+            <div class="values-header">
+              <h2>Our Values</h2>
+              <hr />
+            </div>
+            <div class="values-grid">
+              <div class="value-card">
+                <div class="value-icon-wrapper">
+                  <svg class="value-icon" width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h3>Quality Craftsmanship</h3>
+                <p>Every piece is meticulously handcrafted by skilled artisans using time-honored techniques and the finest materials.</p>
+              </div>
+              <div class="value-card">
+                <div class="value-icon-wrapper">
+                  <svg class="value-icon" width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <h3>Sustainable Design</h3>
+                <p>We source responsibly and design for longevity, creating furniture that's built to last generations.</p>
+              </div>
+              <div class="value-card">
+                <div class="value-icon-wrapper">
+                  <svg class="value-icon" width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h3>Customer Focus</h3>
+                <p>Your satisfaction is our priority. We're dedicated to providing exceptional service and timeless pieces you'll love.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section class="journey-section">
+          <div class="journey-container">
+            <div class="journey-header">
+              <h2>Our Journey</h2>
+              <hr />
+            </div>
+            <div class="journey-timeline-wrapper">
+              <div class="timeline-line"></div>
+              <div class="journey-timeline">
+                <div class="timeline-item">
+                  <div class="timeline-content timeline-content-left">
+                    <h3>2015</h3>
+                    <p>Furnivo was founded with a vision to create timeless, sustainable furniture.</p>
+                  </div>
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-spacer"></div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-spacer"></div>
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content timeline-content-right">
+                    <h3>2017</h3>
+                    <p>Opened our first showroom and expanded our artisan workshop.</p>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-content timeline-content-left">
+                    <h3>2019</h3>
+                    <p>Launched our signature minimalist collection to critical acclaim.</p>
+                  </div>
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-spacer"></div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-spacer"></div>
+                  <div class="timeline-dot"></div>
+                  <div class="timeline-content timeline-content-right">
+                    <h3>2023</h3>
+                    <p>Achieved carbon-neutral production and expanded internationally.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+          <div class="quote-overlay"></div>
+          <div class="quote-content">
+            <blockquote>"Design is not just what it looks like and feels like. Design is how it works."</blockquote>
+            <cite>— Our Philosophy</cite>
+          </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+          <div class="cta-container">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Explore our collections and discover furniture that brings timeless elegance to your home.</p>
+            <a href="../HTML/shop-page.html" class="cta-button">
+              Shop Now
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </section>
       </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-container">
+          <div class="footer-content">
+            <div class="footer-brand">
+              <div class="footer-logo-text">Furnivo</div>
+              <p class="footer-brand-description">Crafting timeless furniture with sustainable design and exceptional quality.</p>
+              <div class="footer-social">
+                <a href="#" class="social-link" aria-label="Facebook">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                  </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                  </svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="footer-nav">
+              <h3>Quick Links</h3>
+              <ul class="footer-nav-list">
+                <li><a href="../HTML/shop-page.html" class="footer-nav-link">Shop</a></li>
+                <li><a href="../HTML/collections.html" class="footer-nav-link">Collections</a></li>
+                <li><a href="../HTML/about-page.html" class="footer-nav-link">About</a></li>
+                <li><a href="../HTML/contact.html" class="footer-nav-link">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-nav">
+              <h3>Support</h3>
+              <ul class="footer-nav-list">
+                <li><a href="#" class="footer-nav-link">FAQ</a></li>
+                <li><a href="#" class="footer-nav-link">Shipping</a></li>
+                <li><a href="#" class="footer-nav-link">Returns</a></li>
+                <li><a href="#" class="footer-nav-link">Care Guide</a></li>
+              </ul>
+            </div>
+            <div class="footer-newsletter">
+              <h3>Newsletter</h3>
+              <p>Subscribe for exclusive offers and updates</p>
+              <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email" required />
+                <button type="submit" class="newsletter-button" aria-label="Subscribe">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2024 Furnivo. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
+
+    <!-- Mobile menu toggle script -->
+    <script>
+      (function () {
+        const toggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.nav-menu');
+        const overlay = document.querySelector('.menu-overlay');
+
+        if (!toggle || !menu) return;
+
+        function closeMenu() {
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.classList.remove('active');
+          menu.classList.remove('active');
+          if (overlay) overlay.classList.remove('active');
+          document.body.classList.remove('menu-open');
+        }
+
+        function toggleMenu() {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          toggle.classList.toggle('active');
+          menu.classList.toggle('active');
+          if (overlay) overlay.classList.toggle('active');
+          document.body.classList.toggle('menu-open', !expanded);
+        }
+
+        toggle.addEventListener('click', toggleMenu);
+        
+        if (overlay) {
+          overlay.addEventListener('click', closeMenu);
+        }
+      })();
+    </script>
   </body>
 </html>
