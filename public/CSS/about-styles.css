@@ -39,7 +39,7 @@
   font-family: "Inter-Regular", Helvetica, sans-serif;
   color: #2d2d2d;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 800;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -52,6 +52,15 @@
   display: flex;
   gap: 32px;
   align-items: center;
+}
+
+/* nav bar styles*/
+.nav-menu {
+  display: flex;
+  gap: 48px;
+  list-style: none;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .nav-link {

@@ -12,6 +12,10 @@ body {
     overflow-x: hidden;
 }
 
+.nav-link {
+  font-weight: 900;
+}
+
 /* Shop Page Container */
 .shop-page {
     width: 100%;
