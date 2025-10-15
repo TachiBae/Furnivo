@@ -5,41 +5,40 @@
     <meta charset="utf-8" />
     <title>FURNIVO - Shop Our New Collection</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/shop-styles.css">
-    <link rel="stylesheet" href="../CSS/globals.css">
+    <!-- load globals first -->
+    <link rel="stylesheet" href="../CSS/globals.css" />
+    <link rel="stylesheet" href="../CSS/shop-styles.css" />
 </head>
 <body>
     <div class="shop-page">
         <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <div class="brand-nav">
-                    <a href="#" class="logo">FURNIVO</a>
-                    <nav class="nav">
-                        <a href="#shop">Shop</a>
-                        <a href="#collections">Collections</a>
-                        <a href="#about">About</a>
-                        <a href="#contact">Contact</a>
-                    </nav>
-                </div>
-                <div class="header-actions">
-                    <button class="icon-button" aria-label="Search">
-                        <svg viewBox="0 0 24 24">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="m21 21-4.35-4.35"></path>
-                        </svg>
-                    </button>
-                    <button class="icon-button" aria-label="Shopping cart">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M9 2L6 6H2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6h-4l-3-4z"></path>
-                            <path d="M9 6v2a3 3 0 0 0 6 0V6"></path>
-                        </svg>
-                        <span class="cart-badge">3</span>
-                    </button>
-                </div>
-            </div>
-        </header>
-
+        <nav class="navbar">
+          <div class="logo"><a href="../HTML/main.html">Furnivo</a></div>
+    
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+    
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="../HTML/furniture-page.html" class="nav-link">Furniture</a></li>
+            <li><a href="../HTML/shop-page.html" class="nav-link">Shop</a></li>
+            <li><a href="../HTML/about-page.html" class="nav-link">About Us</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+    
+          <button class="cart-icon" aria-label="Shopping Cart">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 2L6 6H2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6h-4l-3-4z"></path>
+              <path d="M9 6v2a3 3 0 0 0 6 0V6"></path>
+            </svg>
+          </button>
+        </nav>
+    
+        <!-- mobile menu overlay (keeps behaviour consistent with other pages) -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+    
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-overlay">
@@ -263,5 +262,28 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        
+        const isExpanded = menuToggle.classList.contains('active');
+        menuToggle.setAttribute('aria-expanded', isExpanded);
+      });
+
+      menuOverlay.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    </script>
 </body>
 </html>

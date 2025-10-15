@@ -116,6 +116,40 @@ body {
 }
 
 /* ===========================
+ NAVIGATION LINKS - keep white
+ =========================== */
+
+.Logo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  justify-self: start;
+}
+
+.Logo a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.Logo a:visited {
+  color: #ffffff;
+}
+
+.Logo a:hover {
+  color: rgb(255, 116, 52);
+}
+
+.Logo a:active {
+  color: #ffffff;
+}
+
+.Logo:link {
+  color: white;
+}
+
+/* ===========================
  FEATURED COLLECTION
  =========================== */
 .featured-collection {
