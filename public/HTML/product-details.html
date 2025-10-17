@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Oslo Armchair - Furnivo</title>
+    <meta
+      name="description"
+      content="A perfect blend of Scandinavian minimalism and contemporary comfort. Crafted with premium materials for lasting elegance."
+    />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet" />
+
+    <!-- Import globals first, then product-specific styles -->
+    <link rel="stylesheet" href="../CSS/globals.css" />
+    <link rel="stylesheet" href="../CSS/stylesheet.css" />
+    <link rel="stylesheet" href="../CSS/product-detail.css" />
+  </head>
+  <body>
+    <div class="product-page">
+      <!-- Navigation -->
+      <nav class="navbar">
+        <div class="logo"><a href="../HTML/main.html">Furnivo</a></div>
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="../HTML/furniture-page.html" class="nav-link">Furniture</a></li>
+            <li><a href="../HTML/shop-page.html" class="nav-link">Shop</a></li>
+            <li><a href="../HTML/about-page.html" class="nav-link">About Us</a></li>
+            <li><a href="../HTML/contact-page.html" class="nav-link">Contact</a></li>
+        </ul>
+
+        <button class="cart-icon" aria-label="Shopping Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu Overlay -->
+      <div class="menu-overlay" id="menuOverlay"></div>
+
+      <!-- Main content -->
+      <main class="product-main">
+        <!-- Breadcrumb navigation -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../HTML/main.html">Home</a>
+          <span class="breadcrumb-separator" aria-hidden="true">/</span>
+          <a href="#living-room">Living Room</a>
+          <span class="breadcrumb-separator" aria-hidden="true">/</span>
+          <span class="breadcrumb-current" aria-current="page">Oslo Armchair</span>
+        </nav>
+
+        <!-- Product section -->
+        <section class="product-section" aria-label="Product details">
+          <img 
+            class="product-image" 
+            src="../img/maple-table-cover.webp" 
+            alt="Oslo Armchair - beige upholstered armchair with wooden legs" 
+          />
+          <div class="product-info">
+            <h1 class="product-title">Oslo Armchair</h1>
+            <p class="product-description">
+              A perfect blend of Scandinavian minimalism and contemporary comfort. Crafted with premium materials
+              for lasting elegance.
+            </p>
+            
+            <div class="product-rating">
+              <div class="product-rating-stars" role="img" aria-label="5 out of 5 stars">
+                <span>★★★★★</span>
+              </div>
+              <span class="product-rating-text">(127 reviews)</span>
+            </div>
+            
+            <p class="product-price" aria-label="Price: $1,299">$1,299</p>
+            
+            <form class="product-options">
+              <fieldset class="option-group">
+                <legend class="option-label">Color</legend>
+                <div class="color-options" role="radiogroup" aria-label="Color selection">
+                  <input
+                    type="radio"
+                    id="color-beige"
+                    name="color"
+                    value="beige"
+                    class="color-option beige"
+                    checked
+                    aria-label="Beige"
+                  />
+                  <label for="color-beige" class="visually-hidden">Beige</label>
+                  <input 
+                    type="radio" 
+                    id="color-gray" 
+                    name="color" 
+                    value="gray" 
+                    class="color-option gray" 
+                    aria-label="Gray" 
+                  />
+                  <label for="color-gray" class="visually-hidden">Gray</label>
+                  <input
+                    type="radio"
+                    id="color-dark"
+                    name="color"
+                    value="dark"
+                    class="color-option dark"
+                    aria-label="Dark brown"
+                  />
+                  <label for="color-dark" class="visually-hidden">Dark brown</label>
+                </div>
+              </fieldset>
+              
+              <div class="option-group">
+                <label class="option-label" for="quantity">Quantity</label>
+                <div class="quantity-controls">
+                  <button type="button" class="quantity-button" aria-label="Decrease quantity">-</button>
+                  <input
+                    type="number"
+                    id="quantity"
+                    name="quantity"
+                    class="quantity-input"
+                    value="1"
+                    min="1"
+                    max="99"
+                    aria-label="Quantity"
+                  />
+                  <button type="button" class="quantity-button" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
+              
+              <div class="product-actions">
+                <button type="submit" class="btn-primary">Add to Cart</button>
+                <button type="button" class="btn-secondary">
+                  <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                  </svg>
+                  Save for Later
+                </button>
+              </div>
+            </form>
+            
+            <div class="product-features">
+              <div class="feature-item">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                </svg>
+                <span>Free shipping</span>
+              </div>
+              <div class="feature-item">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>2-year warranty</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Product information tabs -->
+        <section class="product-tabs" aria-label="Product information">
+          <div class="tab-navigation" role="tablist" aria-label="Product information tabs">
+            <button
+              role="tab"
+              class="tab-button active"
+              aria-selected="true"
+              aria-controls="description-panel"
+              id="description-tab"
+            >
+              Description
+            </button>
+            <button
+              role="tab"
+              class="tab-button"
+              aria-selected="false"
+              aria-controls="materials-panel"
+              id="materials-tab"
+            >
+              Materials
+            </button>
+            <button
+              role="tab"
+              class="tab-button"
+              aria-selected="false"
+              aria-controls="dimensions-panel"
+              id="dimensions-tab"
+            >
+              Dimensions
+            </button>
+            <button
+              role="tab"
+              class="tab-button"
+              aria-selected="false"
+              aria-controls="shipping-panel"
+              id="shipping-tab"
+            >
+              Shipping
+            </button>
+          </div>
+          <div class="tab-content" role="tabpanel" id="description-panel" aria-labelledby="description-tab">
+            <p>
+              The Oslo Armchair embodies the essence of Scandinavian design philosophy. Its clean lines and
+              thoughtful proportions create a piece that's both visually striking and incredibly comfortable.
+            </p>
+            <p>
+              Handcrafted by skilled artisans, each chair features a solid oak frame and premium upholstery that
+              ages beautifully over time. The ergonomic design provides optimal support for extended periods of
+              relaxation.
+            </p>
+          </div>
+        </section>
+
+        <!-- Featured section -->
+        <section class="featured-section" aria-label="Designed for Modern Living">
+          <div class="featured-content">
+            <h2>Designed for Modern Living</h2>
+            <p>
+              See how the Oslo Armchair transforms any space into a sanctuary of comfort and style. Perfect for
+              reading corners, living rooms, or bedroom retreats.
+            </p>
+            <a href="#styling-guide" class="featured-link">
+              Explore our styling guide
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7v10"/>
+              </svg>
+            </a>
+          </div>
+          <div class="featured-image" role="img" aria-label="Oslo Armchair styled in a modern living room"></div>
+        </section>
+
+        <!-- Related products -->
+        <section class="related-section" aria-label="Related products">
+          <h2>You might also like</h2>
+          <div class="related-grid">
+            <article class="related-item">
+              <div class="related-image" role="img" aria-label="Bergen Dining Chair product image"></div>
+              <div class="related-content">
+                <h3 class="related-title">Bergen Dining Chair</h3>
+                <p class="related-subtitle">Solid Oak</p>
+                <p class="related-price">$399</p>
+              </div>
+            </article>
+            <article class="related-item">
+              <div class="related-image" role="img" aria-label="Fjord Coffee Table product image"></div>
+              <div class="related-content">
+                <h3 class="related-title">Fjord Coffee Table</h3>
+                <p class="related-subtitle">Walnut Wood</p>
+                <p class="related-price">$899</p>
+              </div>
+            </article>
+            <article class="related-item">
+              <div class="related-image" role="img" aria-label="Nordic Floor Lamp product image"></div>
+              <div class="related-content">
+                <h3 class="related-title">Nordic Floor Lamp</h3>
+                <p class="related-subtitle">Oak & Linen</p>
+                <p class="related-price">$299</p>
+              </div>
+            </article>
+            <article class="related-item">
+              <div class="related-image" role="img" aria-label="Oslo Ottoman product image"></div>
+              <div class="related-content">
+                <h3 class="related-title">Oslo Ottoman</h3>
+                <p class="related-subtitle">Matching Set</p>
+                <p class="related-price">$599</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer" id="contact">
+        <div class="footer-container">
+          <div class="footer-grid">
+            <div class="footer-column">
+              <h3>Furnivo</h3>
+              <p>Worldwide furniture store since 1997. We sell over 1000+ branded products on our website.</p>
+              <div class="social-icons">
+                <a href="#" class="social-icon" aria-label="Facebook">f</a>
+                <a href="#" class="social-icon" aria-label="Twitter">𝕏</a>
+                <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+                <a href="#" class="social-icon" aria-label="LinkedIn">in</a>
+              </div>
+            </div>
+
+            <div class="footer-column">
+              <h4>Menu</h4>
+              <ul>
+                <li><a href="#shop">Products</a></li>
+                <li><a href="#furniture">Rooms</a></li>
+                <li><a href="#about">Inspirations</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#">Terms & Policy</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Account</h4>
+              <ul>
+                <li><a href="#">My Account</a></li>
+                <li><a href="#">Checkout</a></li>
+                <li><a href="#">My Cart</a></li>
+                <li><a href="#">My Catalog</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Stay Connected</h4>
+              <p>Get updates on special offers and new products.</p>
+              <form class="newsletter-form" aria-label="Newsletter signup">
+                <label for="email-input" class="sr-only">Your email address</label>
+                <input id="email-input" class="newsletter-input" placeholder="Your email" type="email" required />
+                <button class="btn-newsletter" type="submit">→</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p>© 2024 Furnivo. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+
+      menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+      });
+
+      menuOverlay.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+      });
+
+      // Tab functionality
+      const tabButtons = document.querySelectorAll('.tab-button');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons and contents
+          tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-selected', 'false');
+          });
+          tabContents.forEach(content => {
+            content.style.display = 'none';
+          });
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+          button.setAttribute('aria-selected', 'true');
+          
+          // Show corresponding content
+          const targetPanel = button.getAttribute('aria-controls');
+          const targetContent = document.getElementById(targetPanel);
+          if (targetContent) {
+            targetContent.style.display = 'block';
+          }
+        });
+      });
+
+      // Quantity controls
+      const quantityInput = document.querySelector('.quantity-input');
+      const decreaseBtn = document.querySelector('.quantity-button:first-of-type');
+      const increaseBtn = document.querySelector('.quantity-button:last-of-type');
+      
+      if (decreaseBtn && quantityInput) {
+        decreaseBtn.addEventListener('click', () => {
+          const currentValue = parseInt(quantityInput.value);
+          if (currentValue > 1) {
+            quantityInput.value = currentValue - 1;
+          }
+        });
+      }
+      
+      if (increaseBtn && quantityInput) {
+        increaseBtn.addEventListener('click', () => {
+          const currentValue = parseInt(quantityInput.value);
+          const maxValue = parseInt(quantityInput.getAttribute('max'));
+          if (currentValue < maxValue) {
+            quantityInput.value = currentValue + 1;
+          }
+        });
+      }
+
+      // Color selection
+      const colorOptions = document.querySelectorAll('.color-option');
+      colorOptions.forEach(option => {
+        option.addEventListener('change', () => {
+          // Remove checked from all options
+          colorOptions.forEach(opt => opt.checked = false);
+          // Check the selected option
+          option.checked = true;
+        });
+      });
+    </script>
+  </body>
+</html>

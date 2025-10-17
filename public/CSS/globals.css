@@ -5,10 +5,18 @@
   box-sizing: border-box;
 }
 
-html,
+html {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+}
+
 body {
   margin: 0px;
-  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 button:focus-visible {
@@ -265,54 +273,48 @@ a {
   --nav-link-size: 16px;
 }
 
-/* Force consistent navbar background, font and sizes across all pages */
-.navbar,
-.header {
-  background: var(--nav-bg) !important;
+.navbar {
+  background: var(--nav-bg);
 }
 
-/* Logo: cover variations used across pages (.logo, .Logo, .logo-text) */
-.logo,
-.Logo,
-.logo-text,
-.logo a,
-.Logo a,
-.logo-text a {
-  font-family: var(--nav-font) !important;
-  font-size: var(--nav-logo-size) !important;
-  color: #ffffff !important;
-  text-decoration: none !important;
+/* Logo styles scoped to .navbar to avoid overriding other header/logo variants */
+.navbar .logo,
+.navbar .Logo,
+.navbar .logo-text,
+.navbar .logo a {
+  font-family: var(--nav-font);
+  font-size: var(--nav-logo-size);
+  color: #ffffff;
+  text-decoration: none;
 }
 
-/* Navigation links: cover .nav-link and .nav a used on different pages */
-.nav-link,
-.nav a,
-.nav-menu .nav-link,
-.header .nav-link {
-  font-family: var(--nav-font) !important;
-  font-size: var(--nav-link-size) !important;
-  color: #ffffff !important;
-  font-weight: 400 !important;
+/* Navigation links scoped to .navbar */
+.navbar .nav-link,
+.navbar .nav a,
+.navbar .nav-menu .nav-link {
+  font-family: var(--nav-font);
+  font-size: var(--nav-link-size);
+  color: #ffffff;
+  font-weight: 400;
 }
 
-/* Ensure cart / icon UI looks correct on dark navbar */
-.cart-icon,
-.header .icon-button,
-.navbar .cart-icon {
-  background-color: transparent !important;
-  color: #ffffff !important;
+/* Ensure cart/icon UI looks correct on dark navbar (scoped) */
+.navbar .cart-icon,
+.navbar .icon-button {
+  background-color: transparent;
+  color: #ffffff;
 }
 
-.cart-icon svg,
-.header .icon-button svg,
-.navbar .cart-icon svg {
-  fill: none !important;
-  stroke: #ffffff !important;
+.navbar .cart-icon svg,
+.navbar .icon-button svg {
+  fill: none;
+  stroke: #ffffff;
 }
 
-/* Mobile menu toggle bars */
+/* Mobile menu toggle bars (keep white for navbar) */
+.navbar .menu-toggle span,
 .menu-toggle span {
-  background-color: #ffffff !important;
+  background-color: #ffffff;
 }
 
 /* visited links stay white (reinforce globally) */
@@ -323,4 +325,12 @@ a:visited,
 .Logo a:visited,
 .logo-text a:visited {
   color: #ffffff !important;
+}
+
+/* Ensure main content fills available space across pages */
+main,
+.landing-page,
+.about-page,
+.shop-page {
+  flex: 1 0 auto;
 }
