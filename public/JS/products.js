@@ -277,6 +277,313 @@ const products = {
       image: '../img/oslo-ottoman-lifestyle.webp'
     },
     relatedProducts: ['oslo-armchair', 'fjord-table', 'bergen-chair']
+  },
+
+  'syltherine': {
+    id: 'syltherine',
+    name: 'Syltherine',
+    description: 'Stylish cafe chair with ergonomic design. Perfect for modern dining spaces and cafes.',
+    price: 2500,
+    rating: 4.5,
+    reviewCount: 89,
+    images: {
+      main: '../img/syltherine-main.webp',
+      gallery: [
+        '../img/syltherine-1.webp',
+        '../img/syltherine-2.webp',
+        '../img/syltherine-3.webp'
+      ]
+    },
+    breadcrumb: {
+      category: 'Dining Room',
+      categoryLink: '#dining-room'
+    },
+    colors: [
+      { id: 'white', name: 'White', hex: '#ffffff' },
+      { id: 'beige', name: 'Beige', hex: '#e7e5e4' },
+      { id: 'gray', name: 'Gray', hex: '#9ca3af' }
+    ],
+    features: [
+      { icon: 'shipping', text: 'Free shipping' },
+      { icon: 'warranty', text: '1-year warranty' }
+    ],
+    tabs: {
+      description: {
+        title: 'Description',
+        content: `
+          <p>The Syltherine chair combines contemporary style with exceptional comfort. Designed for both residential and commercial spaces, it features clean lines and a minimalist aesthetic that complements any decor.</p>
+          <p>Crafted with attention to detail, this stylish cafe chair offers ergonomic support for extended seating comfort. Its versatile design makes it perfect for dining rooms, cafes, and modern workspaces.</p>
+        `
+      },
+      materials: {
+        title: 'Materials',
+        content: `
+          <p>Molded plastic seat with reinforced structure</p>
+          <p>Powder-coated steel legs</p>
+          <p>High-quality polyurethane finish</p>
+          <p>Non-slip rubber feet protectors</p>
+        `
+      },
+      dimensions: {
+        title: 'Dimensions',
+        content: `
+          <p>Width: 19 inches (48 cm)</p>
+          <p>Depth: 21 inches (53 cm)</p>
+          <p>Height: 31 inches (79 cm)</p>
+          <p>Seat Height: 18 inches (46 cm)</p>
+        `
+      },
+      shipping: {
+        title: 'Shipping',
+        content: `
+          <p>Free standard shipping (5-7 business days)</p>
+          <p>Express shipping available ($29)</p>
+          <p>Easy assembly required</p>
+          <p>30-day return policy</p>
+        `
+      }
+    },
+    featured: {
+      title: 'Modern Cafe Seating',
+      description: 'The Syltherine chair brings contemporary elegance to any dining space. Its sleek design and comfortable seating make it ideal for both home and commercial use.',
+      linkText: 'View dining collection',
+      linkUrl: '#dining-collection',
+      image: '../img/syltherine-lifestyle.webp'
+    },
+    relatedProducts: ['leviosa', 'bergen-chair', 'fjord-table', 'respira']
+  },
+
+  'leviosa': {
+    id: 'leviosa',
+    name: 'Leviosa',
+    description: 'Stylish cafe chair with timeless elegance. Lightweight yet durable construction.',
+    price: 2500,
+    rating: 4.2,
+    reviewCount: 76,
+    images: {
+      main: '../img/leviosa-main.webp',
+      gallery: [
+        '../img/leviosa-1.webp',
+        '../img/leviosa-2.webp'
+      ]
+    },
+    breadcrumb: {
+      category: 'Dining Room',
+      categoryLink: '#dining-room'
+    },
+    colors: [
+      { id: 'natural', name: 'Natural Wood', hex: '#d4a574' },
+      { id: 'walnut', name: 'Walnut', hex: '#5d4037' },
+      { id: 'black', name: 'Black', hex: '#1a1a1a' }
+    ],
+    features: [
+      { icon: 'shipping', text: 'Free shipping' },
+      { icon: 'warranty', text: '1-year warranty' }
+    ],
+    tabs: {
+      description: {
+        title: 'Description',
+        content: `
+          <p>The Leviosa chair represents the perfect balance between form and function. Its lightweight design makes it easy to move, while maintaining the durability needed for everyday use.</p>
+          <p>With its timeless silhouette and quality craftsmanship, the Leviosa chair seamlessly integrates into any dining environment, from cozy breakfast nooks to sophisticated dining rooms.</p>
+        `
+      },
+      materials: {
+        title: 'Materials',
+        content: `
+          <p>Solid wood frame construction</p>
+          <p>Natural wood finish with protective coating</p>
+          <p>Contoured seat for comfort</p>
+          <p>Reinforced joint connections</p>
+        `
+      },
+      dimensions: {
+        title: 'Dimensions',
+        content: `
+          <p>Width: 18 inches (46 cm)</p>
+          <p>Depth: 20 inches (51 cm)</p>
+          <p>Height: 33 inches (84 cm)</p>
+          <p>Seat Height: 18 inches (46 cm)</p>
+        `
+      },
+      shipping: {
+        title: 'Shipping',
+        content: `
+          <p>Free standard shipping (5-7 business days)</p>
+          <p>Express shipping available ($29)</p>
+          <p>Fully assembled, ready to use</p>
+          <p>30-day return policy</p>
+        `
+      }
+    },
+    featured: {
+      title: 'Timeless Dining Elegance',
+      description: 'The Leviosa chair combines classic design with modern functionality. Its versatile style complements both traditional and contemporary interiors.',
+      linkText: 'Explore dining furniture',
+      linkUrl: '#dining-collection',
+      image: '../img/leviosa-lifestyle.webp'
+    },
+    relatedProducts: ['syltherine', 'bergen-chair', 'fjord-table', 'oslo-armchair']
+  },
+
+  'lolito': {
+    id: 'lolito',
+    name: 'Lolito',
+    description: 'Luxury big sofa with plush cushioning. Perfect centerpiece for spacious living rooms.',
+    price: 7000,
+    rating: 4.7,
+    reviewCount: 134,
+    images: {
+      main: '../img/lolito-main.webp',
+      gallery: [
+        '../img/lolito-1.webp',
+        '../img/lolito-2.webp',
+        '../img/lolito-3.webp',
+        '../img/lolito-4.webp'
+      ]
+    },
+    breadcrumb: {
+      category: 'Living Room',
+      categoryLink: '#living-room'
+    },
+    colors: [
+      { id: 'cream', name: 'Cream', hex: '#f5f5dc' },
+      { id: 'gray', name: 'Gray', hex: '#808080' },
+      { id: 'navy', name: 'Navy Blue', hex: '#000080' },
+      { id: 'charcoal', name: 'Charcoal', hex: '#36454f' }
+    ],
+    features: [
+      { icon: 'shipping', text: 'Free shipping' },
+      { icon: 'warranty', text: '3-year warranty' }
+    ],
+    tabs: {
+      description: {
+        title: 'Description',
+        content: `
+          <p>The Lolito is a statement piece that defines luxury living. This oversized sofa offers generous seating space with deep cushions and premium upholstery that invites relaxation.</p>
+          <p>Expertly crafted with a solid hardwood frame and high-resilience foam cushioning, the Lolito provides exceptional comfort and durability. Its sophisticated design and plush feel make it the perfect centerpiece for any modern living room.</p>
+          <p>Whether you're entertaining guests or enjoying a quiet evening, the Lolito sofa offers unparalleled comfort and style that will elevate your living space.</p>
+        `
+      },
+      materials: {
+        title: 'Materials',
+        content: `
+          <p>Solid hardwood frame with reinforced corners</p>
+          <p>High-resilience foam cushioning</p>
+          <p>Premium fabric upholstery (stain-resistant)</p>
+          <p>Down-blend back cushions for luxury comfort</p>
+          <p>Durable sinuous spring suspension system</p>
+        `
+      },
+      dimensions: {
+        title: 'Dimensions',
+        content: `
+          <p>Width: 96 inches (244 cm)</p>
+          <p>Depth: 40 inches (102 cm)</p>
+          <p>Height: 36 inches (91 cm)</p>
+          <p>Seat Height: 19 inches (48 cm)</p>
+          <p>Seat Depth: 24 inches (61 cm)</p>
+        `
+      },
+      shipping: {
+        title: 'Shipping',
+        content: `
+          <p>Free standard shipping (7-10 business days)</p>
+          <p>White glove delivery available ($199)</p>
+          <p>Professional assembly included with white glove service</p>
+          <p>60-day return policy</p>
+          <p>In-home placement assistance available</p>
+        `
+      }
+    },
+    featured: {
+      title: 'Luxury Redefined',
+      description: 'Experience the ultimate in comfort and style with the Lolito sofa. This luxury piece transforms your living room into a haven of relaxation and sophistication.',
+      linkText: 'View luxury collection',
+      linkUrl: '#luxury-collection',
+      image: '../img/lolito-lifestyle.webp'
+    },
+    relatedProducts: ['oslo-armchair', 'fjord-table', 'oslo-ottoman', 'nordic-lamp']
+  },
+
+  'respira': {
+    id: 'respira',
+    name: 'Respira',
+    description: 'Outdoor bar table and stool set. Weather-resistant design for patios and gardens.',
+    price: 500,
+    rating: 4.3,
+    reviewCount: 92,
+    images: {
+      main: '../img/respira-main.webp',
+      gallery: [
+        '../img/respira-1.webp',
+        '../img/respira-2.webp',
+        '../img/respira-3.webp'
+      ]
+    },
+    breadcrumb: {
+      category: 'Outdoor',
+      categoryLink: '#outdoor'
+    },
+    colors: [
+      { id: 'natural', name: 'Natural Teak', hex: '#b8956a' },
+      { id: 'dark', name: 'Dark Brown', hex: '#57534e' },
+      { id: 'white', name: 'White', hex: '#f5f5f5' }
+    ],
+    features: [
+      { icon: 'shipping', text: 'Free shipping' },
+      { icon: 'warranty', text: '2-year warranty' }
+    ],
+    tabs: {
+      description: {
+        title: 'Description',
+        content: `
+          <p>The Respira outdoor bar table and stool set brings style and functionality to your outdoor living space. Designed to withstand the elements, this set is perfect for patios, gardens, balconies, and poolside areas.</p>
+          <p>Crafted from weather-resistant materials, the Respira set maintains its beauty through seasons of use. The compact design makes it ideal for smaller spaces while still providing comfortable seating for outdoor entertaining.</p>
+        `
+      },
+      materials: {
+        title: 'Materials',
+        content: `
+          <p>Weather-resistant treated wood or powder-coated aluminum</p>
+          <p>UV-resistant finish</p>
+          <p>Rust-proof hardware</p>
+          <p>Water-resistant coating</p>
+          <p>Non-slip rubber feet</p>
+        `
+      },
+      dimensions: {
+        title: 'Dimensions',
+        content: `
+          <p><strong>Bar Table:</strong></p>
+          <p>Width: 24 inches (61 cm)</p>
+          <p>Depth: 24 inches (61 cm)</p>
+          <p>Height: 42 inches (107 cm)</p>
+          <p><strong>Stool (2 included):</strong></p>
+          <p>Width: 14 inches (36 cm)</p>
+          <p>Depth: 14 inches (36 cm)</p>
+          <p>Height: 30 inches (76 cm)</p>
+        `
+      },
+      shipping: {
+        title: 'Shipping',
+        content: `
+          <p>Free standard shipping (5-7 business days)</p>
+          <p>Express shipping available ($39)</p>
+          <p>Easy assembly required (tools included)</p>
+          <p>30-day return policy</p>
+          <p>Weather-resistant packaging</p>
+        `
+      }
+    },
+    featured: {
+      title: 'Outdoor Entertainment',
+      description: 'Create the perfect outdoor gathering spot with the Respira bar set. Durable, stylish, and designed to enhance your outdoor living experience.',
+      linkText: 'Browse outdoor furniture',
+      linkUrl: '#outdoor-collection',
+      image: '../img/respira-lifestyle.webp'
+    },
+    relatedProducts: ['nordic-lamp', 'fjord-table', 'bergen-chair', 'oslo-armchair']
   }
 };
 

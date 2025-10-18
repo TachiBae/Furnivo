@@ -284,6 +284,44 @@
       navMenu.classList.remove('active');
       menuOverlay.classList.remove('active');
     });
-  </script>
+
+    // Product card click handlers
+    // Map the displayed products to actual product IDs in your database
+    const productMapping = {
+      'Syltherine': 'syltherine',
+      'Leviosa': 'leviosa',
+      'Lolito': 'lolito',
+      'Respira': 'respira'
+    };
+
+    document.querySelectorAll('.product-card').forEach(card => {
+      // Make the card clickable
+      card.style.cursor = 'pointer';
+      
+      card.addEventListener('click', (e) => {
+        // Don't navigate if clicking the "Add to Cart" button
+        if (e.target.classList.contains('btn-add-cart')) {
+          return;
+        }
+        
+        // Get the product name from the card
+        const productName = card.querySelector('.product-name').textContent;
+        const productId = productMapping[productName];
+        
+        if (productId) {
+          window.location.href = `product-details.html?id=${productId}`;
+        }
+      });
+    });
+
+    // Optional: Prevent Add to Cart button from triggering navigation
+    document.querySelectorAll('.btn-add-cart').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        // Add your cart functionality here
+        alert('Product added to cart!');
+      });
+    });
+    </script>
 </body>
 </html>
