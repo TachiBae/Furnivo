@@ -212,7 +212,7 @@ body {
   display: block;
   text-align: center;
   text-decoration: none;
-  color: #333;
+  color: #000000;
   font-size: 14px;
   padding: 15px 40px;
   border: 1px solid #333;
@@ -221,9 +221,20 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* ensure the view button is black when NOT clicked (unvisited) */
+.view-all-btn:link,
+.featured-collection .view-all-btn {
+  color: #000000  ;
+}
+
+/* keep a subtle visited color if desired */
+.view-all-btn:visited {
+  color: #333;
+}
+
 .view-all-btn:hover {
   background-color: #333;
-  color: #f5f5f0;
+  color: #ffffff !important;
 }
 
 /* ===========================
@@ -260,16 +271,22 @@ body {
 .explore-btn {
   display: inline-block;
   text-decoration: none;
-  color: #333;
+  color: #000000 !important;
   font-size: 14px;
   padding: 12px 30px;
   border: 1px solid #333;
   transition: background-color 0.3s, color 0.3s;
 }
 
-.explore-btn:hover {
+/* ensure this button isn't overridden by other link rules */
+.bottom-text .explore-btn,
+.bottom-text .explore-btn:visited {
+  color: #000000 !important;
+}
+
+.bottom-text .explore-btn:hover {
   background-color: #333;
-  color: #f5f5f0;
+  color: #f5f5f0 !important;
 }
 
 .bottom-image {
