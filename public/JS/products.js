@@ -10,7 +10,7 @@ const products = {
     rating: 5,
     reviewCount: 127,
     images: {
-      main: '../img/oslo-armchair-main.webp',
+      main: '../img/oslo-armchair.webp',
       gallery: [
         '../img/oslo-armchair-1.webp',
         '../img/oslo-armchair-2.webp',
@@ -84,7 +84,7 @@ const products = {
     rating: 4.5,
     reviewCount: 89,
     images: {
-      main: '../img/bergen-chair-main.webp',
+      main: '../product-img/bergen-chair.jpg',
       gallery: ['../img/bergen-chair-1.webp']
     },
     breadcrumb: {
@@ -1097,3 +1097,12 @@ document.addEventListener('DOMContentLoaded', () => {
     attachMenuListeners();
   }
 });
+
+document.addEventListener('error', (e) => {
+  const target = e.target;
+  if (target && target.tagName === 'IMG') {
+    // Log failed image URL for debugging
+    console.warn('Image failed to load:', target.src);
+    target.src = '../img/placeholder.webp';
+  }
+}, true);
