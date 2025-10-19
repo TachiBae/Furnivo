@@ -364,7 +364,7 @@ body.menu-open {
   align-items: center;
   justify-content: center;
   padding: 120px 40px;
-  background-image: url('../img/contact-banner.webp')
+  background-image: url('../img/contact-banner.webp');
 }
 
 .quote-section::before {
