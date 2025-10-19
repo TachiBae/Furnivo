@@ -299,62 +299,110 @@ img {
   gap: 32px;
 }
 
+/* Updated product card visuals */
 .product-card {
   background-color: #ffffff;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s;
+  box-shadow: 0 10px 28px rgba(16, 24, 40, 0.08);
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s;
+  display: flex;
+  flex-direction: column;
+  min-height: 520px; 
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(16, 24, 40, 0.12);
 }
 
 .product-image {
+  position: relative;
   width: 100%;
-  height: 220px;
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
-  font-size: 16px;
+  height: 300px; /* bigger, like screenshot */
+  background: #f3f4f6;
 }
 
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* subtle dark gradient at bottom of image for legibility */
+.product-image::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40%;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.22) 100%);
+  pointer-events: none;
+}
+
+/* category label over image (bottom-left) */
+.product-category {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 3;
+  font-weight: 500;
+  color: #3b6b88; /* muted blue */
+  background: rgba(255,255,255,0.85);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  box-shadow: 0 4px 10px rgba(16,24,40,0.06);
+}
+
+/* content panel */
 .product-info {
-  padding: 24px;
+  padding: 28px;         /* increased padding for more breathing room */
+  padding-top: 32px;     /* keep a small overlap with image */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;             /* a bit more vertical spacing between text rows */
+  margin-top: -8px;      /* reduce overlap so text has more space */
+  line-height: 1.45;     /* improve legibility */
 }
 
+/* title */
 .product-name {
-  font-weight: 600;
-  color: #2d2d2d;
-  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  font-size: 21px;      /* slightly larger for readability */
+  line-height: 1.25;
   margin-bottom: 8px;
 }
 
-.product-category {
-  font-weight: 400;
-  color: #4b5563;
-  font-size: 14px;
-  margin-bottom: 12px;
-}
-
+/* rating row */
 .product-rating {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
+  gap: 10px;
+  margin-bottom: 12px;  /* more space before the price */
   font-size: 14px;
-  color: #4b5563;
+  color: #6b7280;
 }
 
 .stars {
   color: #fbbf24;
+  display: inline-flex;
+  gap: 2px;
+  font-size: 14px;
 }
 
+/* price stands out */
+.product-price {
+  font-weight: 800;
+  color: #111827;
+  font-size: 26px;
+  margin-top: 12px;
+}
+
+/* keep card footer spacing consistent */
 .product-footer {
   display: flex;
   justify-content: space-between;
@@ -362,28 +410,18 @@ img {
   gap: 16px;
 }
 
-.product-price {
-  font-weight: 700;
-  color: #2d2d2d;
-  font-size: 22px;
-}
-
-.btn-add-cart {
-  padding: 10px 18px;
-  background-color: #ff6b00;
-  color: #ffffff;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.btn-add-cart:hover {
-  background-color: #e55f00;
-  transform: scale(1.05);
-  transition: all 0.3s ease;
+/* responsive tweak: slightly smaller image on small screens */
+@media (max-width: 768px) {
+  .product-image {
+    height: 240px;
+  }
+  .product-info {
+    margin-top: -16px;
+    padding: 16px;
+  }
+  .product-price {
+    font-size: 20px;
+  }
 }
 
 /* ===========================
@@ -454,6 +492,15 @@ img {
   color: white;
   font-weight: 600;
   font-size: 18px;
+}
+
+/* ensure the experience image uses object-fit and keeps the existing rounded corners */
+.experience-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
 }
 
 /* ===========================

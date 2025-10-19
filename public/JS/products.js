@@ -938,49 +938,54 @@ function initProductPage() {
  * Initialize shop page with dynamic products
  */
 function initShopPage() {
-  const productsGrid = document.querySelector('.products-grid');
-  if (!productsGrid) return;
-  
-  productsGrid.innerHTML = '';
-  
-  Object.values(products).forEach(product => {
-    const article = document.createElement('article');
-    article.className = 'product-card';
-    article.style.cursor = 'pointer';
-    
-    article.innerHTML = `
-      <div class="product-image">
-        <img src="${product.images.main}" 
-             alt="${product.name}"
-             onerror="this.src='../img/placeholder.webp'">
-      </div>
-      <div class="product-info">
-        <p class="product-category">${product.breadcrumb.category}</p>
-        <h2 class="product-name">${product.name}</h2>
-        <div class="product-rating">
-          <div class="stars">
-            <span class="star">${generateStarRating(product.rating)}</span>
-          </div>
-          <span class="review-count">(${product.reviewCount})</span>
+  // handle all products-grid instances (main page and shop page)
+  const grids = document.querySelectorAll('.products-grid');
+  if (!grids || grids.length === 0) return;
+
+  grids.forEach(productsGrid => {
+    productsGrid.innerHTML = '';
+
+    // read max from data attribute (data-max). If not present, show all.
+    const maxAttr = parseInt(productsGrid.dataset.max, 10);
+    const maxItems = Number.isInteger(maxAttr) && maxAttr > 0 ? maxAttr : Infinity;
+
+    const productList = Object.values(products).slice(0, maxItems);
+
+    productList.forEach(product => {
+      const article = document.createElement('article');
+      article.className = 'product-card';
+      article.style.cursor = 'pointer';
+
+      article.innerHTML = `
+        <div class="product-image">
+          <img src="${product.images.main}" 
+               alt="${product.name}"
+               onerror="this.src='../img/placeholder.webp'">
         </div>
-        <p class="product-price">$${product.price.toLocaleString()}</p>
-      </div>
-    `;
-    
-    // Add click handler to navigate to product details
-    article.addEventListener('click', () => {
-      // Get current page location to determine correct path
-      const currentPath = window.location.pathname;
-      
-      if (currentPath.includes('/HTML/')) {
-        window.location.href = `product-details.html?id=${product.id}`;
-      } else {
-        // Otherwise use the HTML folder path
-        window.location.href = `../public/HTML/product-details.html?id=${product.id}`;
-      }
+        <div class="product-info">
+          <p class="product-category">${product.breadcrumb.category}</p>
+          <h2 class="product-name">${product.name}</h2>
+          <div class="product-rating">
+            <div class="stars">
+              <span class="star">${generateStarRating(product.rating)}</span>
+            </div>
+            <span class="review-count">(${product.reviewCount})</span>
+          </div>
+          <p class="product-price">$${product.price.toLocaleString()}</p>
+        </div>
+      `;
+
+      article.addEventListener('click', () => {
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('/HTML/')) {
+          window.location.href = `product-details.html?id=${product.id}`;
+        } else {
+          window.location.href = `../public/HTML/product-details.html?id=${product.id}`;
+        }
+      });
+
+      productsGrid.appendChild(article);
     });
-    
-    productsGrid.appendChild(article);
   });
 }
 

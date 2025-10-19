@@ -107,76 +107,14 @@
     </section>
 
     <!-- Products Section -->
-    <section class="products-section" aria-labelledby="products-heading" id="shop">
+    <section class="products-section shop-page" aria-labelledby="products-heading" id="shop">
       <div class="products-container">
         <div class="section-header">
           <h2 class="section-title" id="products-heading">Best Selling Products</h2>
           <p class="section-subtitle">We recommend the best for you</p>
         </div>
-        <div class="products-grid">
-          <article class="product-card">
-            <div class="product-image" role="img" aria-label="Syltherine chair product image">Syltherine</div>
-            <div class="product-info">
-              <h3 class="product-name">Syltherine</h3>
-              <p class="product-category">Stylish cafe chair</p>
-              <div class="product-rating">
-                <span class="stars">★★★★☆</span>
-                <span>(4.5)</span>
-              </div>
-              <div class="product-footer">
-                <span class="product-price">$2,500</span>
-                <button class="btn-add-cart" type="button">Add to Cart</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image" role="img" aria-label="Leviosa chair product image">Leviosa</div>
-            <div class="product-info">
-              <h3 class="product-name">Leviosa</h3>
-              <p class="product-category">Stylish cafe chair</p>
-              <div class="product-rating">
-                <span class="stars">★★★★☆</span>
-                <span>(4.2)</span>
-              </div>
-              <div class="product-footer">
-                <span class="product-price">$2,500</span>
-                <button class="btn-add-cart" type="button">Add to Cart</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image" role="img" aria-label="Lolito sofa product image">Lolito</div>
-            <div class="product-info">
-              <h3 class="product-name">Lolito</h3>
-              <p class="product-category">Luxury big sofa</p>
-              <div class="product-rating">
-                <span class="stars">★★★★★</span>
-                <span>(4.7)</span>
-              </div>
-              <div class="product-footer">
-                <span class="product-price">$7,000</span>
-                <button class="btn-add-cart" type="button">Add to Cart</button>
-              </div>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image" role="img" aria-label="Respira bar table product image">Respira</div>
-            <div class="product-info">
-              <h3 class="product-name">Respira</h3>
-              <p class="product-category">Outdoor bar table and stool</p>
-              <div class="product-rating">
-                <span class="stars">★★★★☆</span>
-                <span>(4.3)</span>
-              </div>
-              <div class="product-footer">
-                <span class="product-price">$500</span>
-                <button class="btn-add-cart" type="button">Add to Cart</button>
-              </div>
-            </div>
-          </article>
+        <div class="products-grid" data-max="4">
+          <!-- Products will be dynamically loaded here by products.js -->
         </div>
       </div>
     </section>
@@ -192,7 +130,7 @@
           <button class="btn-primary" type="button">More Info</button>
         </div>
         <div class="experience-image" role="img" aria-label="Professional interior design showcase">
-          Experience Image
+          <img src="../img/living-room.jpg" alt="Professional interior design showcase" />
         </div>
       </div>
     </section>
@@ -284,44 +222,9 @@
       navMenu.classList.remove('active');
       menuOverlay.classList.remove('active');
     });
+  </script>
 
-    // Product card click handlers
-    // Map the displayed products to actual product IDs in your database
-    const productMapping = {
-      'Syltherine': 'syltherine',
-      'Leviosa': 'leviosa',
-      'Lolito': 'lolito',
-      'Respira': 'respira'
-    };
-
-    document.querySelectorAll('.product-card').forEach(card => {
-      // Make the card clickable
-      card.style.cursor = 'pointer';
-      
-      card.addEventListener('click', (e) => {
-        // Don't navigate if clicking the "Add to Cart" button
-        if (e.target.classList.contains('btn-add-cart')) {
-          return;
-        }
-        
-        // Get the product name from the card
-        const productName = card.querySelector('.product-name').textContent;
-        const productId = productMapping[productName];
-        
-        if (productId) {
-          window.location.href = `product-details.html?id=${productId}`;
-        }
-      });
-    });
-
-    // Optional: Prevent Add to Cart button from triggering navigation
-    document.querySelectorAll('.btn-add-cart').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        // Add your cart functionality here
-        alert('Product added to cart!');
-      });
-    });
-    </script>
+  <!-- Load products.js to render product cards and wire interactions -->
+  <script src="../JS/products.js"></script>
 </body>
 </html>
