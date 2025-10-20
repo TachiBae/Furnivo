@@ -9,8 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet" />
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="../CSS/globals.css" />
-  <link rel="stylesheet" href="../CSS/stylesheet.css" />
+  <link rel="stylesheet" href="./CSS/stylesheet.css" />
+  <link rel="stylesheet" href="./CSS/globals.css" />
 </head>
 
 <body>
@@ -20,7 +20,7 @@
 
       <!-- Navigation -->
       <nav class="navbar">
-        <div class="logo"><a href="../HTML/main.html">Furnivo</a></div>
+        <div class="logo"><a href="index.html">Furnivo</a></div>
         
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
           <span></span>
@@ -29,13 +29,13 @@
         </button>
 
         <ul class="nav-menu" id="navMenu">
-            <li><a href="../HTML/furniture-page.html" class="nav-link">Furniture</a></li>
-            <li><a href="../HTML/shop-page.html" class="nav-link">Shop</a></li>
-            <li><a href="../HTML/about-page.html" class="nav-link">About Us</a></li>
-            <li><a href="../HTML/contact-page.html" class="nav-link">Contact</a></li>
+          <li><a href="./HTML/furniture-page.html" class="nav-link">Furniture</a></li>
+          <li><a href="./HTML/shop-page.html" class="nav-link">Shop</a></li>
+          <li><a href="./HTML/about-page.html" class="nav-link">About Us</a></li>
+          <li><a href="./HTML/contact-page.html" class="nav-link">Contact</a></li>
         </ul>
 
-        <a href="../HTML/cart-page.html" class="cart-icon" aria-label="Shopping Cart">
+        <a href="./HTML/cart-page.html" class="cart-icon" aria-label="Shopping Cart">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
           </svg>
@@ -48,7 +48,7 @@
         <p class="hero-subtitle">
           Turn your room with Furnivo into a lot more minimalist and modern with ease and speed.
         </p>
-        <button class="hero-button">Shop Now</button>
+        <a href="./HTML/shop-page.html"><button class="hero-button">Shop Now</button></a>
       </div>
     </div>
 
@@ -63,7 +63,7 @@
           <button class="shop-btn">Shop Now</button>
         </div>
         <div class="about-image">
-          <img src="../img/living-room.jpg" alt="Minimalist Living Room">
+          <img src="./img/living-room.jpg" alt="Minimalist Living Room">
         </div>
       </div>
   </section>
@@ -130,7 +130,7 @@
           <button class="btn-primary" type="button">More Info</button>
         </div>
         <div class="experience-image" role="img" aria-label="Professional interior design showcase">
-          <img src="../img/interior.webp" alt="Professional interior design showcase" />
+          <img src="./img/interior.webp" alt="Professional interior design showcase" />
         </div>
       </div>
     </section>
@@ -139,7 +139,7 @@
     <section class="materials-section" aria-labelledby="materials-heading">
       <div class="materials-container">
         <div class="materials-image" role="img" aria-label="High-quality furniture materials showcase">
-          <img src="../img/interior1.jpg" alt="Scandinavian Interior">
+          <img src="./img/interior1.jpg" alt="Scandinavian Interior">
         </div>
         <div class="materials-content">
           <h2 class="materials-title" id="materials-heading">Very Serious Materials For Making Furniture</h2>
@@ -225,6 +225,6 @@
   </script>
 
   <!-- Load products.js to render product cards and wire interactions -->
-  <script src="../JS/products.js"></script>
+  <script src="./JS/products.js"></script>
 </body>
 </html>
