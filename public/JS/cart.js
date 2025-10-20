@@ -406,12 +406,54 @@ function attachCartPageButtonListeners() {
   }
 }
 
+function renderRecommendedProducts() {
+  const recommendationsSection = document.querySelector('.section-2');
+  if (!recommendationsSection) return;
+
+  // Get 4 random products
+  const productList = Object.values(products);
+  const shuffled = productList.sort(() => 0.5 - Math.random());
+  const recommended = shuffled.slice(0, 4);
+
+  // Find the products grid container
+  const grid = recommendationsSection.querySelector('.div-28');
+  if (!grid) return;
+
+  grid.innerHTML = '';
+
+  recommended.forEach(product => {
+    const article = document.createElement('article');
+    article.className = 'div-29';
+    article.style.cursor = 'pointer';
+
+    article.innerHTML = `
+      <div class="div-30">
+        <div class="related-image" role="img" aria-label="${product.name}" 
+             style="width:100%;height:256px;background-image:url('${product.images.main}');background-size:cover;background-position:center;">
+        </div>
+      </div>
+      <div class="div-31">
+        <h3 class="text-wrapper-29">${product.name}</h3>
+        <p class="text-wrapper-30">${product.description.substring(0, 50)}...</p>
+        <p class="text-wrapper-31">$${product.price.toLocaleString()}</p>
+      </div>
+    `;
+
+    article.addEventListener('click', () => {
+      window.location.href = `product-details.html?id=${product.id}`;
+    });
+
+    grid.appendChild(article);
+  });
+}
+
 function initCartPage() {
   renderCartItems();
   updateOrderSummary();
   updateCartBadge();
   attachCartPageButtonListeners();
   attachCartIconListener();
+  renderRecommendedProducts();
 
   cart.subscribe(() => {
     renderCartItems();

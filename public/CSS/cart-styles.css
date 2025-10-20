@@ -282,34 +282,44 @@
 .frame .div-8,
 .frame .div-17 {
   display: flex;
+  align-items: center;
   border-radius: 8px;
   border: 1px solid #e5e7eb;
   height: 42px;
+  overflow: hidden;
 }
 
+.frame .div-8 button,
+.frame .div-17 button,
 .frame .button {
   all: unset;
   box-sizing: border-box;
   width: 36px;
-  height: 40px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 8px 0 0 8px;
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  color: #000000;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+  background-color: transparent;
+  transition: background-color 0.2s;
 }
 
+.frame .div-8 button:hover,
+.frame .div-17 button:hover,
 .frame .button:hover {
   background-color: #f3f4f6;
 }
 
+.frame .div-8 span,
+.frame .div-17 span,
 .frame .span,
 .frame .span-2 {
-  width: 40px;
-  height: 40px;
+  min-width: 50px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -317,22 +327,26 @@
   border-right: 1px solid #e5e7eb;
   font-family: "Poppins", sans-serif;
   font-size: 16px;
-  color: #000000;
+  font-weight: 500;
+  color: #333333;
+  background-color: #ffffff;
 }
 
 .frame .button-2 {
   all: unset;
   box-sizing: border-box;
   width: 36px;
-  height: 40px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 0 8px 8px 0;
   font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  color: #000000;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333333;
+  background-color: transparent;
+  transition: background-color 0.2s;
 }
 
 .frame .button-2:hover {

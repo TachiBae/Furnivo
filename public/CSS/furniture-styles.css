@@ -212,7 +212,7 @@ body {
   display: block;
   text-align: center;
   text-decoration: none;
-  color: black !important;
+  color: #000000 !important;
   font-size: 14px;
   padding: 15px 40px;
   border: 1px solid #333;
@@ -221,16 +221,14 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-/* ensure the view button is black when NOT clicked (unvisited) */
+/* ensure the view button is black in all states */
 .view-all-btn:link,
+.view-all-btn:visited,
+.view-all-btn:active,
 .featured-collection .view-all-btn {
-  color: #000000  ;
+  color: #000000 !important;
 }
 
-/* keep a subtle visited color if desired */
-.view-all-btn:visited {
-  color: #333;
-}
 
 .view-all-btn:hover {
   background-color: #333;
