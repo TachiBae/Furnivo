@@ -10,7 +10,7 @@ const products = {
     rating: 5,
     reviewCount: 127,
     images: {
-      main: './img/oslo-armchair.jpg',
+      main: '../img/oslo-armchair.jpg',
       gallery: [
         '../img/oslo-armchair.jpg',
         './img/oslo-armchair-2.webp',
