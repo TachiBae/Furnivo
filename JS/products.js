@@ -977,10 +977,12 @@ function initShopPage() {
 
       article.addEventListener('click', () => {
         const currentPath = window.location.pathname;
+        // If we're already in the HTML folder, use relative path
         if (currentPath.includes('/HTML/')) {
           window.location.href = `product-details.html?id=${product.id}`;
         } else {
-          window.location.href = `../public/HTML/product-details.html?id=${product.id}`;
+          // If we're in the root (index.html), navigate to HTML folder
+          window.location.href = `./HTML/product-details.html?id=${product.id}`;
         }
       });
 
