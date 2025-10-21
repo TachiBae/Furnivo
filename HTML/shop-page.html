@@ -24,23 +24,21 @@
             <span></span>
           </button>
     
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="./furniture-page.html" class="nav-link">Furniture</a></li>
-                <li><a href="./shop-page.html" class="nav-link">Shop</a></li>
-                <li><a href="./about-page.html" class="nav-link">About Us</a></li>
-                <li><a href="./contact-page.html" class="nav-link">Contact</a></li>
-            </ul>
+          <ul class="nav-menu" id="navMenu">
+              <li><a href="furniture-page.html" class="nav-link">Furniture</a></li>
+              <li><a href="shop-page.html" class="nav-link">Shop</a></li>
+              <li><a href="about-page.html" class="nav-link">About Us</a></li>
+              <li><a href="contact-page.html" class="nav-link">Contact</a></li>
+          </ul>
 
-
-          <button class="cart-icon" aria-label="Shopping Cart">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M9 2L6 6H2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6h-4l-3-4z"></path>
-              <path d="M9 6v2a3 3 0 0 0 6 0V6"></path>
+          <a href="cart-page.html" class="cart-icon" aria-label="Shopping Cart">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
             </svg>
-          </button>
+          </a>
         </nav>
     
-        <!-- mobile menu overlay (keeps behaviour consistent with other pages) -->
+        <!-- mobile menu overlay -->
         <div class="menu-overlay" id="menuOverlay"></div>
     
         <!-- Hero Section -->
@@ -57,11 +55,11 @@
         <section class="filter-section">
             <div class="filter-container">
                 <div class="filter-group">
-                    <div class="filter-select">All Categories</div>
-                    <div class="filter-select">Material</div>
-                    <div class="filter-select">Price Range</div>
+                    <div class="filter-select" tabindex="0" role="button">All Categories</div>
+                    <div class="filter-select" tabindex="0" role="button">Material</div>
+                    <div class="filter-select" tabindex="0" role="button">Price Range</div>
                 </div>
-                <div class="filter-select">Sort by: Featured</div>
+                <div class="filter-select" tabindex="0" role="button">Sort by: Featured</div>
             </div>
         </section>
 
@@ -92,10 +90,10 @@
           <div class="footer-column">
             <h4>Menu</h4>
             <ul>
-              <li><a href="#shop">Products</a></li>
-              <li><a href="#furniture">Rooms</a></li>
-              <li><a href="#about">Inspirations</a></li>
-              <li><a href="#about">About Us</a></li>
+              <li><a href="../index.html#shop">Products</a></li>
+              <li><a href="../index.html#furniture">Rooms</a></li>
+              <li><a href="../index.html#about">Inspirations</a></li>
+              <li><a href="about-page.html">About Us</a></li>
               <li><a href="#">Terms & Policy</a></li>
             </ul>
           </div>
@@ -105,7 +103,7 @@
             <ul>
               <li><a href="#">My Account</a></li>
               <li><a href="#">Checkout</a></li>
-              <li><a href="#">My Cart</a></li>
+              <li><a href="cart-page.html">My Cart</a></li>
               <li><a href="#">My Catalog</a></li>
             </ul>
           </div>
@@ -116,7 +114,7 @@
             <form class="newsletter-form" aria-label="Newsletter signup">
               <label for="email-input" class="sr-only">Your email address</label>
               <input id="email-input" class="newsletter-input" placeholder="Your email" type="email" required />
-              <button class="btn-newsletter" type="submit">→</button>
+              <button class="btn-newsletter" type="submit" aria-label="Subscribe">→</button>
             </form>
           </div>
         </div>
@@ -127,7 +125,39 @@
       </div>
     </footer>
 
-    <!-- JavaScript - Load products.js first, then cart.js -->
+    <!-- JavaScript - mobile menu functionality -->
+    <script>
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+
+      menuToggle.addEventListener('click', () => {
+        const isActive = menuToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', isActive);
+      });
+
+      menuOverlay.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+
+      // Close menu when clicking nav links
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.classList.remove('active');
+          navMenu.classList.remove('active');
+          menuOverlay.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
+
+    <!-- Load products.js first, then cart.js -->
     <script src="../JS/products.js"></script>
     <script src="../JS/cart.js"></script>
 </body>

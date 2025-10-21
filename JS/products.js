@@ -10,9 +10,9 @@ const products = {
     rating: 5,
     reviewCount: 127,
     images: {
-      main: './img/oslo-armchair.jpg',
+      main: '../img/oslo-armchair.jpg',
       gallery: [
-        './img/oslo-armchair.jpg',
+        '../img/oslo-armchair.jpg',
         './img/oslo-armchair-2.webp',
         './img/oslo-armchair-3.webp'
       ]
@@ -71,7 +71,7 @@ const products = {
       description: 'See how the Oslo Armchair transforms any space into a sanctuary of comfort and style. Perfect for reading corners, living rooms, or bedroom retreats.',
       linkText: 'Explore our styling guide',
       linkUrl: '#styling-guide',
-      image: './img/oslo-armchair1.jpg'
+      image: '../img/oslo-armchair1.jpg'
     },
     relatedProducts: ['bergen-chair', 'fjord-table', 'nordic-lamp', 'oslo-ottoman']
   },
@@ -84,7 +84,7 @@ const products = {
     rating: 4.5,
     reviewCount: 89,
     images: {
-      main: './img/bergen-chair.jpg',
+      main: '../img/bergen-chair.jpg',
       gallery: ['./img/bergen-chair-1.webp']
     },
     breadcrumb: {
@@ -122,7 +122,7 @@ const products = {
       description: 'The Bergen Dining Chair brings warmth and sophistication to your dining space.',
       linkText: 'View dining collection',
       linkUrl: '#dining-collection',
-      image: './img/bergen-chair1.jpg'
+      image: '../img/bergen-chair1.jpg'
     },
     relatedProducts: ['oslo-armchair', 'fjord-table', 'nordic-lamp']
   },
@@ -135,8 +135,8 @@ const products = {
     rating: 5,
     reviewCount: 64,
     images: {
-      main: './img/fjord-table.jpg',
-      gallery: ['./img/fjord-table-1.webp']
+      main: '../img/fjord-table.jpg',
+      gallery: ['../img/fjord-table-1.webp']
     },
     breadcrumb: {
       category: 'Living Room',
@@ -172,7 +172,7 @@ const products = {
       description: 'The Fjord Coffee Table anchors your living space with natural beauty and functional design.',
       linkText: 'Explore living room furniture',
       linkUrl: '#living-room',
-      image: './img/fjord-table1.jpg'
+      image: '../img/fjord-table1.jpg'
     },
     relatedProducts: ['oslo-armchair', 'bergen-chair', 'oslo-ottoman']
   },
@@ -185,7 +185,7 @@ const products = {
     rating: 4.5,
     reviewCount: 102,
     images: {
-      main: './img/nordic-floor-lamp.jpg',
+      main: '../img/nordic-floor-lamp.jpg',
       gallery: ['./img/nordic-lamp-1.webp']
     },
     breadcrumb: {
@@ -223,7 +223,7 @@ const products = {
       description: 'The Nordic Floor Lamp provides warm, diffused light that creates a cozy atmosphere.',
       linkText: 'Browse lighting collection',
       linkUrl: '#lighting',
-      image: './img/floor-lamp.webp'
+      image: '../img/floor-lamp.webp'
     },
     relatedProducts: ['oslo-armchair', 'fjord-table', 'bergen-chair']
   },
@@ -236,8 +236,8 @@ const products = {
     rating: 5,
     reviewCount: 45,
     images: {
-      main: './img/ottoman.webp',
-      gallery: ['./img/oslo-ottoman-1.webp']
+      main: '../img/ottoman.webp',
+      gallery: ['../img/oslo-ottoman-1.webp']
     },
     breadcrumb: {
       category: 'Living Room',
@@ -274,7 +274,7 @@ const products = {
       description: 'The Oslo Ottoman perfectly complements the Oslo Armchair for ultimate relaxation.',
       linkText: 'View Oslo collection',
       linkUrl: '#oslo-collection',
-      image: './img/ottoman1.webp'
+      image: '../img/ottoman1.webp'
     },
     relatedProducts: ['oslo-armchair', 'fjord-table', 'bergen-chair']
   },
@@ -287,7 +287,7 @@ const products = {
     rating: 4.5,
     reviewCount: 89,
     images: {
-      main: './img/syltherine.jpg',
+      main: '../img/syltherine.jpg',
       gallery: [
         './img/syltherine-1.webp',
         './img/syltherine-2.webp',
@@ -348,7 +348,7 @@ const products = {
       description: 'The Syltherine chair brings contemporary elegance to any dining space. Its sleek design and comfortable seating make it ideal for both home and commercial use.',
       linkText: 'View dining collection',
       linkUrl: '#dining-collection',
-      image: './img/syltherine1.jpg'
+      image: '../img/syltherine1.jpg'
     },
     relatedProducts: ['leviosa', 'bergen-chair', 'fjord-table', 'respira']
   },
@@ -361,7 +361,7 @@ const products = {
     rating: 4.2,
     reviewCount: 76,
     images: {
-      main: './img/leviosa.jpg',
+      main: '../img/leviosa.jpg',
       gallery: [
         './img/leviosa-1.webp',
         './img/leviosa-2.webp'
@@ -421,7 +421,7 @@ const products = {
       description: 'The Leviosa chair combines classic design with modern functionality. Its versatile style complements both traditional and contemporary interiors.',
       linkText: 'Explore dining furniture',
       linkUrl: '#dining-collection',
-      image: './img/leviosa1.jpg'
+      image: '../img/leviosa1.jpg'
     },
     relatedProducts: ['syltherine', 'bergen-chair', 'fjord-table', 'oslo-armchair']
   },
@@ -434,7 +434,7 @@ const products = {
     rating: 4.7,
     reviewCount: 134,
     images: {
-      main: './img/lolito.webp',
+      main: '../img/lolito.webp',
       gallery: [
         './img/lolito-1.webp',
         './img/lolito-2.webp',
@@ -501,7 +501,7 @@ const products = {
       description: 'Experience the ultimate in comfort and style with the Lolito sofa. This luxury piece transforms your living room into a haven of relaxation and sophistication.',
       linkText: 'View luxury collection',
       linkUrl: '#luxury-collection',
-      image: './img/lolito1.jpg'
+      image: '../img/lolito1.jpg'
     },
     relatedProducts: ['oslo-armchair', 'fjord-table', 'oslo-ottoman', 'nordic-lamp']
   },
@@ -514,7 +514,7 @@ const products = {
     rating: 4.3,
     reviewCount: 92,
     images: {
-      main: './img/respira.jpg',
+      main: '../img/respira.jpg',
       gallery: [
         './img/respira-1.webp',
         './img/respira-2.webp',
@@ -581,7 +581,7 @@ const products = {
       description: 'Create the perfect outdoor gathering spot with the Respira bar set. Durable, stylish, and designed to enhance your outdoor living experience.',
       linkText: 'Browse outdoor furniture',
       linkUrl: '#outdoor-collection',
-      image: './img/respira1.jpg'
+      image: '../img/respira1.jpg'
     },
     relatedProducts: ['nordic-lamp', 'fjord-table', 'bergen-chair', 'oslo-armchair']
   }
