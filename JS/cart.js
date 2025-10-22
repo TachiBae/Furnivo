@@ -2,17 +2,12 @@
 // CART MANAGEMENT SYSTEM
 // ===========================
 
-/**
- * Get the correct base path for images based on current location
- */
 function getCartImageBasePath() {
   const currentPath = window.location.pathname;
   
-  // If we're in the HTML subdirectory
   if (currentPath.includes('/HTML/')) {
     return '../img/';
   }
-  // If we're at root or in a GitHub Pages repo subdirectory
   else {
     const pathParts = currentPath.split('/').filter(p => p);
     if (pathParts.length > 0 && !pathParts[0].includes('.html')) {
@@ -22,9 +17,7 @@ function getCartImageBasePath() {
   }
 }
 
-/**
- * Get full image path
- */
+
 function getCartImagePath(imageName) {
   // If imageName already has a path (starts with ../ or ./), extract just the filename
   if (imageName.includes('/')) {
@@ -34,9 +27,7 @@ function getCartImagePath(imageName) {
   return basePath + imageName;
 }
 
-/**
- * Cart object to manage shopping cart state
- */
+
 const cart = {
   items: [],
   subscribers: [],
