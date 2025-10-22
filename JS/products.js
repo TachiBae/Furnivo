@@ -1,4 +1,27 @@
 // ===========================
+// PATH CONFIGURATION
+// ===========================
+
+function getImageBasePath() {
+  const currentPath = window.location.pathname;
+  
+  // If we're in the HTML subdirectory
+  if (currentPath.includes('/HTML/')) {
+    return '../img/';
+  }
+  // If we're at root or in a GitHub Pages repo subdirectory
+  else {
+    // Check if we're in a GitHub Pages subdirectory (repo-name)
+    const pathParts = currentPath.split('/').filter(p => p);
+    if (pathParts.length > 0 && !pathParts[0].includes('.html')) {
+      // We're in a subdirectory like /furnivo/
+      return './img/';
+    }
+    return './img/';
+  }
+}
+
+// ===========================
 // PRODUCT DATABASE
 // ===========================
 const products = {
@@ -10,11 +33,11 @@ const products = {
     rating: 5,
     reviewCount: 127,
     images: {
-      main: '../img/oslo-armchair.jpg',
+      main: 'oslo-armchair.jpg',
       gallery: [
-        '../img/oslo-armchair.jpg',
-        './img/oslo-armchair-2.webp',
-        './img/oslo-armchair-3.webp'
+        'oslo-armchair.jpg',
+        'oslo-armchair-2.webp',
+        'oslo-armchair-3.webp'
       ]
     },
     breadcrumb: {
@@ -71,7 +94,7 @@ const products = {
       description: 'See how the Oslo Armchair transforms any space into a sanctuary of comfort and style. Perfect for reading corners, living rooms, or bedroom retreats.',
       linkText: 'Explore our styling guide',
       linkUrl: '#styling-guide',
-      image: '../img/oslo-armchair1.jpg'
+      image: 'oslo-armchair1.jpg'
     },
     relatedProducts: ['bergen-chair', 'fjord-table', 'nordic-lamp', 'oslo-ottoman']
   },
@@ -84,8 +107,8 @@ const products = {
     rating: 4.5,
     reviewCount: 89,
     images: {
-      main: '../img/bergen-chair.jpg',
-      gallery: ['./img/bergen-chair-1.webp']
+      main: 'bergen-chair.jpg',
+      gallery: ['bergen-chair-1.webp']
     },
     breadcrumb: {
       category: 'Dining Room',
@@ -122,7 +145,7 @@ const products = {
       description: 'The Bergen Dining Chair brings warmth and sophistication to your dining space.',
       linkText: 'View dining collection',
       linkUrl: '#dining-collection',
-      image: '../img/bergen-chair1.jpg'
+      image: 'bergen-chair1.jpg'
     },
     relatedProducts: ['oslo-armchair', 'fjord-table', 'nordic-lamp']
   },
@@ -135,8 +158,8 @@ const products = {
     rating: 5,
     reviewCount: 64,
     images: {
-      main: '../img/fjord-table.jpg',
-      gallery: ['../img/fjord-table-1.webp']
+      main: 'fjord-table.jpg',
+      gallery: ['fjord-table-1.webp']
     },
     breadcrumb: {
       category: 'Living Room',
@@ -172,7 +195,7 @@ const products = {
       description: 'The Fjord Coffee Table anchors your living space with natural beauty and functional design.',
       linkText: 'Explore living room furniture',
       linkUrl: '#living-room',
-      image: '../img/fjord-table1.jpg'
+      image: 'fjord-table1.jpg'
     },
     relatedProducts: ['oslo-armchair', 'bergen-chair', 'oslo-ottoman']
   },
@@ -185,8 +208,8 @@ const products = {
     rating: 4.5,
     reviewCount: 102,
     images: {
-      main: '../img/nordic-floor-lamp.jpg',
-      gallery: ['./img/nordic-lamp-1.webp']
+      main: 'nordic-floor-lamp.jpg',
+      gallery: ['nordic-lamp-1.webp']
     },
     breadcrumb: {
       category: 'Lighting',
@@ -223,7 +246,7 @@ const products = {
       description: 'The Nordic Floor Lamp provides warm, diffused light that creates a cozy atmosphere.',
       linkText: 'Browse lighting collection',
       linkUrl: '#lighting',
-      image: '../img/floor-lamp.webp'
+      image: 'floor-lamp.webp'
     },
     relatedProducts: ['oslo-armchair', 'fjord-table', 'bergen-chair']
   },
@@ -236,8 +259,8 @@ const products = {
     rating: 5,
     reviewCount: 45,
     images: {
-      main: '../img/ottoman.webp',
-      gallery: ['../img/oslo-ottoman-1.webp']
+      main: 'ottoman.webp',
+      gallery: ['oslo-ottoman-1.webp']
     },
     breadcrumb: {
       category: 'Living Room',
@@ -274,7 +297,7 @@ const products = {
       description: 'The Oslo Ottoman perfectly complements the Oslo Armchair for ultimate relaxation.',
       linkText: 'View Oslo collection',
       linkUrl: '#oslo-collection',
-      image: '../img/ottoman1.webp'
+      image: 'ottoman1.webp'
     },
     relatedProducts: ['oslo-armchair', 'fjord-table', 'bergen-chair']
   },
@@ -287,11 +310,11 @@ const products = {
     rating: 4.5,
     reviewCount: 89,
     images: {
-      main: '../img/syltherine.jpg',
+      main: 'syltherine.jpg',
       gallery: [
-        './img/syltherine-1.webp',
-        './img/syltherine-2.webp',
-        './img/syltherine-3.webp'
+        'syltherine-1.webp',
+        'syltherine-2.webp',
+        'syltherine-3.webp'
       ]
     },
     breadcrumb: {
@@ -348,7 +371,7 @@ const products = {
       description: 'The Syltherine chair brings contemporary elegance to any dining space. Its sleek design and comfortable seating make it ideal for both home and commercial use.',
       linkText: 'View dining collection',
       linkUrl: '#dining-collection',
-      image: '../img/syltherine1.jpg'
+      image: 'syltherine1.jpg'
     },
     relatedProducts: ['leviosa', 'bergen-chair', 'fjord-table', 'respira']
   },
@@ -361,10 +384,10 @@ const products = {
     rating: 4.2,
     reviewCount: 76,
     images: {
-      main: '../img/leviosa.jpg',
+      main: 'leviosa.jpg',
       gallery: [
-        './img/leviosa-1.webp',
-        './img/leviosa-2.webp'
+        'leviosa-1.webp',
+        'leviosa-2.webp'
       ]
     },
     breadcrumb: {
@@ -421,7 +444,7 @@ const products = {
       description: 'The Leviosa chair combines classic design with modern functionality. Its versatile style complements both traditional and contemporary interiors.',
       linkText: 'Explore dining furniture',
       linkUrl: '#dining-collection',
-      image: '../img/leviosa1.jpg'
+      image: 'leviosa1.jpg'
     },
     relatedProducts: ['syltherine', 'bergen-chair', 'fjord-table', 'oslo-armchair']
   },
@@ -434,12 +457,12 @@ const products = {
     rating: 4.7,
     reviewCount: 134,
     images: {
-      main: '../img/lolito.webp',
+      main: 'lolito.webp',
       gallery: [
-        './img/lolito-1.webp',
-        './img/lolito-2.webp',
-        './img/lolito-3.webp',
-        './img/lolito-4.webp'
+        'lolito-1.webp',
+        'lolito-2.webp',
+        'lolito-3.webp',
+        'lolito-4.webp'
       ]
     },
     breadcrumb: {
@@ -501,7 +524,7 @@ const products = {
       description: 'Experience the ultimate in comfort and style with the Lolito sofa. This luxury piece transforms your living room into a haven of relaxation and sophistication.',
       linkText: 'View luxury collection',
       linkUrl: '#luxury-collection',
-      image: '../img/lolito1.jpg'
+      image: 'lolito1.jpg'
     },
     relatedProducts: ['oslo-armchair', 'fjord-table', 'oslo-ottoman', 'nordic-lamp']
   },
@@ -514,11 +537,11 @@ const products = {
     rating: 4.3,
     reviewCount: 92,
     images: {
-      main: '../img/respira.jpg',
+      main: 'respira.jpg',
       gallery: [
-        './img/respira-1.webp',
-        './img/respira-2.webp',
-        './img/respira-3.webp'
+        'respira-1.webp',
+        'respira-2.webp',
+        'respira-3.webp'
       ]
     },
     breadcrumb: {
@@ -581,7 +604,7 @@ const products = {
       description: 'Create the perfect outdoor gathering spot with the Respira bar set. Durable, stylish, and designed to enhance your outdoor living experience.',
       linkText: 'Browse outdoor furniture',
       linkUrl: '#outdoor-collection',
-      image: '../img/respira1.jpg'
+      image: 'respira1.jpg'
     },
     relatedProducts: ['nordic-lamp', 'fjord-table', 'bergen-chair', 'oslo-armchair']
   }
@@ -590,6 +613,14 @@ const products = {
 // ===========================
 // UTILITY FUNCTIONS
 // ===========================
+
+/**
+ * Get full image path with proper base path
+ */
+function getImagePath(imageName) {
+  const basePath = getImageBasePath();
+  return basePath + imageName;
+}
 
 /**
  * Get product ID from URL parameter
@@ -673,10 +704,10 @@ function updateBreadcrumb(product) {
 function updateProductSection(product) {
   const productImage = document.querySelector('.product-image');
   if (productImage) {
-    productImage.src = product.images.main;
+    productImage.src = getImagePath(product.images.main);
     productImage.alt = `${product.name} - main product image`;
     productImage.onerror = function() {
-      this.src = './img/placeholder.webp';
+      this.src = getImagePath('placeholder.webp');
       this.alt = 'Product image not available';
     };
   }
@@ -847,7 +878,7 @@ function updateFeaturedSection(product) {
   }
   
   if (featuredImage && product.featured.image) {
-    featuredImage.style.backgroundImage = `url('${product.featured.image}')`;
+    featuredImage.style.backgroundImage = `url('${getImagePath(product.featured.image)}')`;
     featuredImage.style.backgroundSize = 'cover';
     featuredImage.style.backgroundPosition = 'center';
     featuredImage.style.minHeight = '400px';
@@ -872,11 +903,11 @@ function updateRelatedProducts(product) {
     article.style.cursor = 'pointer';
     
     article.innerHTML = `
-      <div class="related-image" role="img" aria-label="${relatedProduct.name} product image" style="background-image: url('${relatedProduct.images.main}'); background-size: cover; background-position: center;"></div>
+      <div class="related-image" role="img" aria-label="${relatedProduct.name} product image" style="background-image: url('${getImagePath(relatedProduct.images.main)}'); background-size: cover; background-position: center;"></div>
       <div class="related-content">
         <h3 class="related-title">${relatedProduct.name}</h3>
         <p class="related-subtitle">${relatedProduct.breadcrumb.category}</p>
-        <p class="related-price">$${relatedProduct.price.toLocaleString()}</p>
+        <p class="related-price">${relatedProduct.price.toLocaleString()}</p>
       </div>
     `;
     
@@ -938,14 +969,12 @@ function initProductPage() {
  * Initialize shop page with dynamic products
  */
 function initShopPage() {
-  // handle all products-grid instances (main page and shop page)
   const grids = document.querySelectorAll('.products-grid');
   if (!grids || grids.length === 0) return;
 
   grids.forEach(productsGrid => {
     productsGrid.innerHTML = '';
 
-    // read max from data attribute (data-max). If not present, show all.
     const maxAttr = parseInt(productsGrid.dataset.max, 10);
     const maxItems = Number.isInteger(maxAttr) && maxAttr > 0 ? maxAttr : Infinity;
 
@@ -958,9 +987,9 @@ function initShopPage() {
 
       article.innerHTML = `
         <div class="product-image">
-          <img src="${product.images.main}" 
+          <img src="${getImagePath(product.images.main)}" 
                alt="${product.name}"
-               onerror="this.src='./img/placeholder.webp'">
+               onerror="this.src='${getImagePath('placeholder.webp')}'">
         </div>
         <div class="product-info">
           <p class="product-category">${product.breadcrumb.category}</p>
@@ -971,18 +1000,16 @@ function initShopPage() {
             </div>
             <span class="review-count">(${product.reviewCount})</span>
           </div>
-          <p class="product-price">$${product.price.toLocaleString()}</p>
+          <p class="product-price">${product.price.toLocaleString()}</p>
         </div>
       `;
 
       article.addEventListener('click', () => {
         const currentPath = window.location.pathname;
-        // If we're already in the HTML folder, use relative path
         if (currentPath.includes('/HTML/')) {
           window.location.href = `product-details.html?id=${product.id}`;
         } else {
-          // If we're in the root (index.html), navigate to HTML folder
-          window.location.href = `./HTML/product-details.html?id=${product.id}`;
+          window.location.href = `HTML/product-details.html?id=${product.id}`;
         }
       });
 
@@ -1063,7 +1090,6 @@ function attachQuantityListeners() {
 
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      // parse values safely
       const currentValue = Number.parseInt(quantityInput.value, 10) || 1;
       const minValue = Number.parseInt(quantityInput.getAttribute('min'), 10) || 1;
       const maxValue = Number.parseInt(quantityInput.getAttribute('max'), 10) || 999;
@@ -1120,8 +1146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('error', (e) => {
   const target = e.target;
   if (target && target.tagName === 'IMG') {
-    // Log failed image URL for debugging
     console.warn('Image failed to load:', target.src);
-    target.src = './img/placeholder.webp';
+    target.src = getImagePath('placeholder.webp');
   }
 }, true);

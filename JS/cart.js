@@ -3,6 +3,38 @@
 // ===========================
 
 /**
+ * Get the correct base path for images based on current location
+ */
+function getCartImageBasePath() {
+  const currentPath = window.location.pathname;
+  
+  // If we're in the HTML subdirectory
+  if (currentPath.includes('/HTML/')) {
+    return '../img/';
+  }
+  // If we're at root or in a GitHub Pages repo subdirectory
+  else {
+    const pathParts = currentPath.split('/').filter(p => p);
+    if (pathParts.length > 0 && !pathParts[0].includes('.html')) {
+      return './img/';
+    }
+    return './img/';
+  }
+}
+
+/**
+ * Get full image path
+ */
+function getCartImagePath(imageName) {
+  // If imageName already has a path (starts with ../ or ./), extract just the filename
+  if (imageName.includes('/')) {
+    imageName = imageName.split('/').pop();
+  }
+  const basePath = getCartImageBasePath();
+  return basePath + imageName;
+}
+
+/**
  * Cart object to manage shopping cart state
  */
 const cart = {
@@ -68,18 +100,21 @@ const cart = {
       // Item already exists, update quantity
       this.items[existingItemIndex].quantity += quantity;
     } else {
-      // Add new item
+      // Add new item - store only the image filename without path
+      const imageFilename = product.images.main.includes('/') 
+        ? product.images.main.split('/').pop() 
+        : product.images.main;
+      
       this.items.push({
         productId: product.id,
         name: product.name,
         price: product.price,
-        image: product.images.main,
+        image: imageFilename, // Store only filename
         color: selectedColor,
         quantity: quantity
       });
     }
 
-    // ✅ Save to localStorage and update subscribers
     this.save();
     this.notify();
     return true;
@@ -98,7 +133,6 @@ const cart = {
         this.items[itemIndex].quantity = newQuantity;
       }
 
-      // ✅ Save after every change
       this.save();
       this.notify();
       return true;
@@ -114,7 +148,6 @@ const cart = {
 
     if (itemIndex > -1) {
       this.items.splice(itemIndex, 1);
-      // ✅ Save after removal
       this.save();
       this.notify();
       return true;
@@ -125,7 +158,7 @@ const cart = {
   // Clear all items from cart
   clear() {
     this.items = [];
-    this.save(); // ✅ Clear in storage too
+    this.save();
     this.notify();
   }
 };
@@ -229,7 +262,12 @@ function attachCartIconListener() {
 
   newCartIcon.addEventListener('click', (e) => {
     e.preventDefault();
-    window.location.href = '../HTML/cart-page.html';
+    const currentPath = window.location.pathname;
+    if (currentPath.includes('/HTML/')) {
+      window.location.href = 'cart-page.html';
+    } else {
+      window.location.href = 'HTML/cart-page.html';
+    }
   });
 
   newCartIcon.style.cursor = 'pointer';
@@ -285,39 +323,45 @@ function renderCartItems() {
       <div class="empty-cart" style="text-align:center; padding:4rem 2rem;">
         <h2>Your cart is empty</h2>
         <p>Looks like you haven't added any items yet.</p>
-        <a href="../HTML/shop-page.html" style="background:#d97706;color:white;padding:0.75rem 2rem;border-radius:0.5rem;text-decoration:none;font-weight:600;">Start Shopping</a>
+        <a href="../HTML/shop-page.html" style="background:#d97706;color:white;padding:0.75rem 2rem;border-radius:0.5rem;text-decoration:none;font-weight:600;display:inline-block;">Start Shopping</a>
       </div>
     `;
     return;
   }
 
-  container.innerHTML = items.map(item => `
-    <article class="div-wrapper">
-      <div class="div-4">
-        <div class="img-wrapper">
-          <img src="${item.image}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover;border-radius:0.5rem;" onerror="this.src='../img/placeholder.webp'" />
-        </div>
-        <div class="div-5">
-          <h2 class="text-wrapper-2">${item.name}</h2>
-          ${item.color ? `<p class="p">Color: ${item.color}</p>` : '<p class="p">&nbsp;</p>'}
-          <div class="div-6">
-            <div class="div-7">
-              <p class="text-wrapper-3">$${item.price.toLocaleString()}</p>
-              <div class="div-8" role="group" aria-label="Quantity selector">
-                <button class="button cart-qty-decrease" data-product-id="${item.productId}" data-color="${item.color || ''}">-</button>
-                <span>${item.quantity}</span>
-                <button class="button cart-qty-increase" data-product-id="${item.productId}" data-color="${item.color || ''}">+</button>
+  container.innerHTML = items.map(item => {
+    const imagePath = getCartImagePath(item.image);
+    return `
+      <article class="div-wrapper">
+        <div class="div-4">
+          <div class="img-wrapper">
+            <img src="${imagePath}" 
+                 alt="${item.name}" 
+                 style="width:100%;height:100%;object-fit:cover;border-radius:0.5rem;" 
+                 onerror="this.src='${getCartImagePath('placeholder.webp')}'" />
+          </div>
+          <div class="div-5">
+            <h2 class="text-wrapper-2">${item.name}</h2>
+            ${item.color ? `<p class="p">Color: ${item.color}</p>` : '<p class="p">&nbsp;</p>'}
+            <div class="div-6">
+              <div class="div-7">
+                <p class="text-wrapper-3">$${item.price.toLocaleString()}</p>
+                <div class="div-8" role="group" aria-label="Quantity selector">
+                  <button class="button cart-qty-decrease" data-product-id="${item.productId}" data-color="${item.color || ''}">-</button>
+                  <span>${item.quantity}</span>
+                  <button class="button cart-qty-increase" data-product-id="${item.productId}" data-color="${item.color || ''}">+</button>
+                </div>
               </div>
-            </div>
-            <div class="div-9">
-              <p>$${(item.price * item.quantity).toLocaleString()}</p>
-              <button class="cart-remove-item" data-product-id="${item.productId}" data-color="${item.color || ''}">Remove</button>
+              <div class="div-9">
+                <p>$${(item.price * item.quantity).toLocaleString()}</p>
+                <button class="cart-remove-item" data-product-id="${item.productId}" data-color="${item.color || ''}" style="cursor:pointer;background:transparent;border:none;color:#ef4444;font-weight:500;">Remove</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </article>
-  `).join('');
+      </article>
+    `;
+  }).join('');
 
   attachCartPageListeners();
 }
@@ -373,7 +417,7 @@ function attachCartPageListeners() {
     btn.addEventListener('click', () => {
       const productId = btn.dataset.productId;
       const color = btn.dataset.color || null;
-      if (confirm('Remove this item?')) {
+      if (confirm('Remove this item from your cart?')) {
         cart.removeItem(productId, color);
         renderCartItems();
         updateOrderSummary();
@@ -410,6 +454,12 @@ function renderRecommendedProducts() {
   const recommendationsSection = document.querySelector('.section-2');
   if (!recommendationsSection) return;
 
+  // Check if products is defined
+  if (typeof products === 'undefined') {
+    console.warn('Products not loaded yet');
+    return;
+  }
+
   // Get 4 random products
   const productList = Object.values(products);
   const shuffled = productList.sort(() => 0.5 - Math.random());
@@ -426,10 +476,12 @@ function renderRecommendedProducts() {
     article.className = 'div-29';
     article.style.cursor = 'pointer';
 
+    const imagePath = getCartImagePath(product.images.main);
+
     article.innerHTML = `
       <div class="div-30">
         <div class="related-image" role="img" aria-label="${product.name}" 
-             style="width:100%;height:256px;background-image:url('${product.images.main}');background-size:cover;background-position:center;">
+             style="width:100%;height:256px;background-image:url('${imagePath}');background-size:cover;background-position:center;">
         </div>
       </div>
       <div class="div-31">
